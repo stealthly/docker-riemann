@@ -15,7 +15,9 @@
 
 sed -r -i "s/(set\s+\:bind,\s+)\"(.*)\"/\1\"$HOST\"/g" /opt/config.rb
 sed -r -i "s/(\"server\"\:\s+)\"(.*)\:/\1\"$HOST\:/g" /opt/dash-config.json
-sed -r -i "s/(\[host\s+)\"(.*)\"/\1\"$HOST\"/g" /opt/riemann.config 
+
+IP=$(ifconfig  | grep 'inet addr:'| grep 17 | grep 172|cut -d: -f2 | awk '{ print $1}')
+sed -r -i "s/(\[host\s+)\"(.*)\"/\1\"$IP\"/g" /opt/riemann.config 
 
 $RIEMANN_HOME/bin/riemann /opt/riemann.config &
 riemann-dash /opt/config.rb
