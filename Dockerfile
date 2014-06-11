@@ -30,6 +30,6 @@ ADD config.rb /opt/config.rb
 ADD dash-config.json /opt/dash-config.json
 ADD start.sh /usr/bin/start.sh
 
-EXPOSE 4567 5555
+EXPOSE 4567 5555 5556
 
 CMD start.sh
