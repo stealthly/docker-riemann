@@ -1,0 +1,90 @@
+{
+    "server": "localhost:5556",
+    "server_type": "ws",
+    "workspaces": [
+        {
+            "view": {
+                "type": "Balloon",
+                "weight": 1,
+                "child": {
+                    "children": [
+                        {
+                            "children": [
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Grid",
+                                            "cols": "",
+                                            "title": "Health",
+                                            "weight": 1,
+                                            "query": "service = \"cpu percent\" or service = \"memory used %\" or service = \"disk used %\" ",
+                                            "max": "",
+                                            "rows": ""
+                                        },
+                                        {
+                                            "type": "TimeSeries",
+                                            "speed": "",
+                                            "opacity": "",
+                                            "title": "Health timeseries",
+                                            "weight": 1,
+                                            "lineWidth": "",
+                                            "query": "service = \"cpu percent\" or service = \"memory used %\" or service = \"disk used %\" ",
+                                            "delay": ""
+                                        },
+                                        {
+                                            "type": "Gauge",
+                                            "title": "CPU load",
+                                            "weight": 1,
+                                            "query": "service = \"cpu percent\""
+                                        }
+                                    ],
+                                    "type": "VStack",
+                                    "weight": 1
+                                },
+                                {
+                                    "children": [
+                                        {
+                                            "type": "Flot",
+                                            "graphType": "line",
+                                            "title": "CPU",
+                                            "weight": 1,
+                                            "stackMode": "false",
+                                            "timeRange": 300,
+                                            "query": "tagged \"cpu\""
+                                        },
+                                        {
+                                            "type": "Flot",
+                                            "graphType": "line",
+                                            "title": "Memory",
+                                            "weight": 1,
+                                            "stackMode": "false",
+                                            "timeRange": 300,
+                                            "query": "tagged \"memory\""
+                                        },
+                                        {
+                                            "type": "Flot",
+                                            "graphType": "line",
+                                            "title": "Disk",
+                                            "weight": 1,
+                                            "stackMode": "false",
+                                            "timeRange": 300,
+                                            "query": "tagged \"disk\""
+                                        }
+                                    ],
+                                    "type": "VStack",
+                                    "weight": 1
+                                }
+                            ],
+                            "type": "HStack",
+                            "weight": 1
+                        }
+                    ],
+                    "type": "VStack",
+                    "weight": 1
+                }
+            },
+            "name": "Riemann",
+            "id": "4d0dd4a79a195d4ac83a78310d9f2fa07c3035e0"
+        }
+    ]
+}
