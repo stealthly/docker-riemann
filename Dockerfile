@@ -17,7 +17,7 @@ FROM stealthly/docker-ruby
 
 RUN gem install riemann-client riemann-tools riemann-dash
 
-ENV RIEMANN_VERSION 0.2.4
+ENV RIEMANN_VERSION 0.2.10
 ENV RIEMANN_RELEASE riemann-$RIEMANN_VERSION
 ENV RIEMANN_URL http://aphyr.com/riemann/$RIEMANN_RELEASE.tar.bz2
 ENV RIEMANN_HOME /opt/$RIEMANN_RELEASE
